@@ -3,6 +3,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
 
 module Data.Text1(
   Text1(Text1)
@@ -42,6 +43,7 @@ import Data.Text.Lens(IsText(packed, builder))
 import Data.Traversable(Traversable(traverse))
 import Data.Tuple(uncurry)
 import Data.Typeable(Typeable)
+import GHC.Generics(Generic)
 import Prelude(Show(show), Num((+), (-)))
 
 
@@ -57,7 +59,7 @@ data Text1 =
   Text1
     Char
     Text
-  deriving (Eq, Ord, Data, Typeable)
+  deriving (Eq, Ord, Data, Generic, Typeable)
 
 instance Show Text1 where
   show (Text1 h t) =
